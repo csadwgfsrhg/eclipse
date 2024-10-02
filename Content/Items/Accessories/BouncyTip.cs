@@ -1,34 +1,26 @@
-﻿﻿using Terraria;
-using Terraria.ID;
-using Eclipse;
-using Terraria.Localization;
-using Terraria.ModLoader;
-﻿using ReLogic.Content;
-using Terraria.DataStructures;
+﻿namespace Eclipse.Content.Items.Accessories;
 
-namespace Eclipse.Content.Items.Accessories
+public class BouncyTip : ModItem
 {
-	public class BouncyTip : ModItem
-	{
-			public override void SetDefaults() {
-			Item.width = 40;
-			Item.height = 40;
-			Item.accessory = true;
-        }
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.GetModPlayer<MyPlayer>().BouncyTip = true;
-			
+    public override void SetDefaults() {
+        Item.accessory = true;
 
+        Item.width = 40;
+        Item.height = 40;
+    }
+
+    public override void UpdateAccessory(Player player, bool hideVisual) {
+        if (!player.TryGetModPlayer(out BouncyTipPlayer modPlayer)) {
+            return;
         }
 
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.PinkGel, 12);
+        modPlayer.Enabled = true;
+    }
 
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.Register();
-		}
-	}
+    public override void AddRecipes() {
+        CreateRecipe()
+            .AddIngredient(ItemID.PinkGel, 12)
+            .AddTile(TileID.WorkBenches)
+            .Register();
+    }
 }

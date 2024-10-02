@@ -1,4 +1,7 @@
-DamageClasses.HarvestDamage.DisplayName: Harvest Damage
+DamageClasses: {
+	HarvestDamage.DisplayName: Harvest Damage
+	HarvestDamageClass.DisplayName: Harvest Damage Class
+}
 
 Items: {
 	WoodenTrowel: {
@@ -22,4 +25,7 @@ Items: {
 	}
 }
 
-Projectiles.PotatoCrop.DisplayName: Potato Crop
+Projectiles: {
+	PotatoCrop.DisplayName: Potato Crop
+	SpiritAngler.DisplayName: Spirit Angler
+}
